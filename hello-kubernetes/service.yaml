@@ -1,0 +1,14 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: hello-kubernetes
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+        - image: dev.local/hello-kubernetes:local
+          env:
+            - name: TARGET
+              value: "Kubernetes !! "
+          imagePullPolicy: Never

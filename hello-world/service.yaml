@@ -1,0 +1,14 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: hello-world
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+        - image: dev.local/hello-world:local
+          env:
+            - name: TARGET
+              value: "World ! "
+          imagePullPolicy: Never
